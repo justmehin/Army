@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>סיפורים מהשטח - קולות מהצבא</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;700&family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#16a34a",
+                        "primary-dark": "#15803d",
+                        "background-light": "#f0fdf4",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif Hebrew","serif"],
+                        "sans": ["Noto Sans Hebrew","sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background-light text-slate-900 font-sans">
+
+    <div class="sticky top-0 z-50 flex items-center justify-between bg-white/95 backdrop-blur-md p-4 border-b border-green-100 shadow-sm">
+        <a href="index.html" class="flex items-center text-primary hover:text-primary-dark transition-colors">
+            <span class="material-symbols-outlined">arrow_forward</span>
+            <span class="mr-1 font-bold">חזרה</span>
+        </a>
+        <h2 class="text-lg font-bold font-display text-center flex-1">סיפורים מהשטח</h2>
+        <div class="w-10"></div> </div>
+
+    <div class="max-w-2xl mx-auto p-4 pt-8">
+        
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold font-display text-primary mb-2">קיימים במערכת</h1>
+            <p class="text-slate-600">רגעים של אמת, אתגרים והשראה מהשירות</p>
+        </div>
+
+        <div class="space-y-6">
+            
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-green-50">
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded">שמירת שבת</span>
+                        <span class="text-slate-400 text-xs">לפני יומיים</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">הקידוש בתוך הנגמ"ש</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        "היינו באמצע פעילות בצפון, השמש כבר שקעה. לא היה יין, אז עשינו קידוש על חלות של מנות קרב. ברגע הזה הרגשתי שדווקא שם, בתוך הרעש, השבת הכי חזקה..."
+                    </p>
+                    <div class="flex items-center text-primary font-bold text-sm cursor-pointer hover:underline">
+                        קרא את הסיפור המלא <span class="material-symbols-outlined text-sm mr-1">chevron_left</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-green-50">
+                <div class="p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">תובנות</span>
+                        <span class="text-slate-400 text-xs">לפני שבוע</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">חברות מעבר למגזרים</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        "בטירונות פגשתי אנשים שמעולם לא חשבתי שיהיו חברים שלי. גיליתי שהציצית שלי היא לא מחסום, היא דווקא פתחה שיחות הכי עמוקות בלילות שמירה..."
+                    </p>
+                    <div class="flex items-center text-primary font-bold text-sm cursor-pointer hover:underline">
+                        קרא את הסיפור המלא <span class="material-symbols-outlined text-sm mr-1">chevron_left</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-12 mb-10 text-center">
+            <a href="index.html" class="inline-flex items-center justify-center gap-2 text-slate-500 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">home</span>
+                <span class="font-bold">חזרה לדף הבית</span>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
