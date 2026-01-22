@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>קולות מהצבא</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;700&family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#16a34a",
+        "primary-dark": "#15803d",
+        "background-light": "#f0fdf4",
+        "background-dark": "#14532d",
+        "card-dark": "#1a2230",
+      },
+      fontFamily: {
+        "display": ["Noto Serif Hebrew","serif"],
+        "sans": ["Noto Sans Hebrew","sans-serif"]
+      },
+      borderRadius: {"DEFAULT":"0.5rem","lg":"1rem","xl":"1.5rem","full":"9999px"}
+    }
+  }
+}
+</script>
+<style>
+body { font-family: "Noto Sans Hebrew", sans-serif; min-height: 100vh; }
+h1,h2,h3,h4,h5,h6,.font-display { font-family: "Noto Serif Hebrew", serif; }
+</style>
+</head>
+<body class="bg-background-light text-slate-900">
+
+<div class="relative flex flex-col min-h-screen">
+
+<!-- Header -->
+<div class="sticky top-0 z-50 flex items-center justify-between bg-background-light/95 backdrop-blur-md p-4 border-b border-green-100">
+  <div class="flex items-center cursor-pointer text-slate-900 hover:text-primary transition-colors">
+    <span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+  </div>
+  <h2 class="text-lg font-bold font-display text-center flex-1">קולות מהצבא</h2>
+  <div class="flex items-center cursor-pointer text-primary hover:text-primary-dark transition-colors">
+    <span class="material-symbols-outlined text-[24px]">share</span>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<div class="relative flex flex-col justify-end overflow-hidden bg-gray-900 min-h-[320px]" style='background-image: linear-gradient(0deg, rgba(21,128,61,1) 0%, rgba(21,128,61,0.4) 40%, rgba(21,128,61,0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG5Aaq7q6-yL8_qaPJ23sCANGGvfFu6EQ9-cRYYwb_CXmviUYOzhVuR-e3vsFub_jn47Lx-CVf_R7mG0SYuuC0FHYIRUZBRLmds7Ow52LTLsqEb2Uc8BKurEf_6mK--6uPrpecAPhDNtBueS9R3ACHJNEGz73ADVs4fShjZbOpGfMtlvyU47Qy6ZpKtw_2JZJFAOhovdHAoKkzx36ft2_BRmXXpLRJ36ZDzfPbg8mHAV_h8526V6ZPmV0zSFafmTWnPWujZkQ5k"); background-size: cover; background-position: center;'>
+  <div class="flex flex-col p-6 pb-8 gap-3">
+    <span class="inline-flex items-center rounded-full bg-green-500/30 px-3 py-1 text-xs font-medium text-green-50 ring-1 ring-inset ring-green-400/50 w-fit backdrop-blur-sm">
+      פרויקט כתיבה משותף
+    </span>
+    <h1 class="text-white text-4xl font-bold font-display drop-shadow-md">
+      הסיפור שלך הוא<br/>
+      <span class="text-green-300">המצפן שלהם</span>
+    </h1>
+    <p class="text-green-50 text-lg font-medium leading-relaxed max-w-md drop-shadow-sm">
+      עוזרים למלש"בים להתחבר לאמת שבשטח דרך העיניים שלכם.
+    </p>
+  </div>
+</div>
+
+<!-- המטרה שלנו -->
+<div class="px-4 -mt-6 relative z-10">
+  <div class="bg-white rounded-xl shadow-lg p-6 border border-green-100">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="bg-primary/10 p-2 rounded-full text-primary">
+        <span class="material-symbols-outlined">menu_book</span>
+      </div>
+      <h3 class="text-xl font-bold font-display text-slate-900">המטרה שלנו</h3>
+    </div>
+    <p class="text-slate-600 text-base leading-relaxed">
+      להפגיש את המלש״בים עם רגעים אמיתיים מהחיים כדי לחבר אותם לתכלס שקורה בצבא, דבר שיעזור להם בעבודת השם.
+    </p>
+  </div>
+</div>
+
+<!-- כרטיסים נושאים -->
+<div class="flex flex-col pt-8 pb-4">
+  <div class="flex items-center justify-between px-4 pb-4">
+    <h3 class="text-xl font-bold font-display text-slate-900">על מה כותבים?</h3>
+    <span class="text-primary font-bold text-sm">נושאים נבחרים</span>
+  </div>
+  <div class="grid grid-cols-1 gap-3 px-4">
+    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
+      <div class="size-12 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-600 shrink-0">
+        <span class="material-symbols-outlined">candle</span>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold font-display text-slate-900">שמירת שבת והלכה</h4>
+        <p class="text-sm text-slate-500">אתגרים ופתרונות בשטח</p>
+      </div>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
+      <div class="size-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-600 shrink-0">
+        <span class="material-symbols-outlined">wc</span>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold font-display text-slate-900">ענייני בינו לבינה</h4>
+        <p class="text-sm text-slate-500">התמודדות בסביבה מעורבת</p>
+      </div>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
+      <div class="size-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-600 shrink-0">
+        <span class="material-symbols-outlined">hotel_class</span>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold font-display text-slate-900">רגעים מרוממים</h4>
+        <p class="text-sm text-slate-500">השראה וחיבור רוחני</p>
+      </div>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
+      <div class="size-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-600 shrink-0">
+        <span class="material-symbols-outlined">battery_alert</span>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold font-display text-slate-900">שחיקה ומשברים</h4>
+        <p class="text-sm text-slate-500">הקושי והצמיחה מתוכו</p>
+      </div>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
+      <div class="size-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600 shrink-0">
+        <span class="material-symbols-outlined">lightbulb</span>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold font-display text-slate-900">תובנות מהחיים</h4>
+        <p class="text-sm text-slate-500">מה לקחתי להמשך הדרך</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer / סיפור -->
+<div class="px-4 pb-10">
+  <div class="bg-gradient-to-br from-green-800 to-green-950 rounded-2xl p-6 border border-green-700/50 text-center relative overflow-hidden shadow-lg">
+    <div class="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="relative z-10 flex flex-col items-center">
+      <span class="material-symbols-outlined text-4xl text-green-300 mb-3">chat_bubble</span>
+      <h3 class="text-white text-2xl font-bold font-display mb-2">יש לך סיפור?</h3>
+      <p class="text-green-100 text-sm mb-6 max-w-[250px]">הסיפור שלך יכול להיות האור עבור מישהו אחר. אנחנו זמינים בוואטסאפ ובטלפון.</p>
+      <div class="bg-white/10 border border-white/20 rounded-lg p-4 w-full mb-6 flex flex-col items-center justify-center backdrop-blur-sm">
+        <span class="text-green-100 text-xs mb-1 uppercase tracking-wider">מספר הטלפון שלנו</span>
+        <div class="flex items-center gap-2">
+          <span class="text-white text-2xl font-bold tracking-widest font-mono select-all">054-656-3397</span>
+          <button class="text-green-300 hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-lg">content_copy</span>
+          </button>
+        </div>
+      </div>
+      <a href="https://wa.me/972546563397" target="_blank" class="w-full bg-white text-green-900 hover:bg-green-50 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg active:scale-[0.98]">
+        <span class="material-symbols-outlined">send</span>
+        <span>שלחו הודעה עכשיו</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
