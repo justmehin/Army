@@ -1,173 +1,588 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="he">
+<html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>קולות מהצבא</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;700&family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "primary": "#16a34a",
-        "primary-dark": "#15803d",
-        "background-light": "#f0fdf4",
-        "background-dark": "#14532d",
-        "card-dark": "#1a2230",
-      },
-      fontFamily: {
-        "display": ["Noto Serif Hebrew","serif"],
-        "sans": ["Noto Sans Hebrew","sans-serif"]
-      },
-      borderRadius: {"DEFAULT":"0.5rem","lg":"1rem","xl":"1.5rem","full":"9999px"}
-    }
-  }
-}
-</script>
-<style>
-body { font-family: "Noto Sans Hebrew", sans-serif; min-height: 100vh; }
-h1,h2,h3,h4,h5,h6,.font-display { font-family: "Noto Serif Hebrew", serif; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title">הכיפות של יובל - כיפות סרוגות באהבה בעבודת יד</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Amatic SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vintage: {
+                            50: '#fdfbf7',
+                            100: '#f7f1e5',
+                            200: '#ebd9c1',
+                            300: '#dbba96',
+                            400: '#c6956b',
+                            500: '#b47849',
+                            600: '#9a5c37',
+                            700: '#7e452e',
+                            800: '#67392a',
+                            900: '#543025',
+                        },
+                        sage: {
+                            50: '#f4f7f4',
+                            100: '#e3eae3',
+                            300: '#adc2b1',
+                            600: '#58745e',
+                            800: '#384d3d',
+                        },
+                        cream: '#fcf8f2',
+                        whatsapp: '#25D366'
+                    },
+                    fontFamily: {
+                        handwriting: ['"Amatic SC"', 'cursive', 'sans-serif'],
+                        serif: ['"Amatic SC"', 'cursive', 'sans-serif'],
+                        sans: ['"Amatic SC"', 'cursive', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Amatic SC', cursive, sans-serif;
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#ebd9c1 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .vintage-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(126, 69, 46, 0.15);
+        }
+        h1, h2, h3, h4, .text-font-large {
+            font-weight: 700;
+        }
+        select, input, button, textarea {
+            font-family: 'Amatic SC', cursive, sans-serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 700;
+        }
+    </style>
 </head>
-<body class="bg-background-light text-slate-900">
+<body class="text-vintage-900 font-handwriting min-h-screen flex flex-col">
 
-<div class="relative flex flex-col min-h-screen">
+    <!-- Header & Navigation -->
+    <header class="bg-cream/95 md:backdrop-blur-md relative md:sticky top-0 z-40 border-b-2 border-vintage-300 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-2 md:py-3 flex flex-col md:flex-row items-center justify-between gap-3">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 md:gap-3 group mx-auto md:mx-0">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-vintage-200 border-2 border-vintage-500 flex items-center justify-center text-vintage-700 shadow-inner group-hover:rotate-12 transition-transform shrink-0">
+                    <svg class="w-6 h-6 md:w-8 md:h-8 text-vintage-800" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="32" cy="36" r="14" fill="#ebd9c1" stroke="#7e452e" stroke-width="2.5"/>
+                        <path d="M22 30 C 26 24, 38 24, 42 30" stroke="#7e452e" stroke-width="2"/>
+                        <path d="M20 36 C 26 42, 38 42, 44 36" stroke="#7e452e" stroke-width="2"/>
+                        <path d="M26 24 C 32 30, 32 42, 26 48" stroke="#7e452e" stroke-width="2"/>
+                        <line x1="8" y1="12" x2="48" y2="52" stroke="#9a5c37" stroke-width="3" />
+                        <circle cx="7" cy="11" r="3" fill="#9a5c37"/>
+                        <line x1="56" y1="12" x2="16" y2="52" stroke="#9a5c37" stroke-width="3" />
+                        <circle cx="57" cy="11" r="3" fill="#9a5c37"/>
+                    </svg>
+                </div>
+                <div class="text-center md:text-right">
+                    <h1 id="header-title" class="font-handwriting text-2xl md:text-4xl font-bold text-vintage-800 leading-none">הכיפות של יובל</h1>
+                    <span id="header-subtitle" class="text-base md:text-xl font-handwriting text-vintage-600 block leading-tight">סריגה אישית בעבודת יד</span>
+                </div>
+            </a>
 
-<!-- Header -->
-<div class="sticky top-0 z-50 flex items-center justify-between bg-background-light/95 backdrop-blur-md p-4 border-b border-green-100">
-  <div class="flex items-center cursor-pointer text-slate-900 hover:text-primary transition-colors">
-    <span class="material-symbols-outlined text-[24px]">arrow_forward</span>
-  </div>
-  <h2 class="text-lg font-bold font-display text-center flex-1">קולות מהצבא</h2>
-  <div class="flex items-center cursor-pointer text-primary hover:text-primary-dark transition-colors">
-    <span class="material-symbols-outlined text-[24px]">share</span>
-  </div>
-</div>
-
-<!-- Hero Section -->
-<div class="relative flex flex-col justify-end overflow-hidden bg-gray-900 min-h-[320px]" style='background-image: linear-gradient(0deg, rgba(21,128,61,1) 0%, rgba(21,128,61,0.4) 40%, rgba(21,128,61,0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG5Aaq7q6-yL8_qaPJ23sCANGGvfFu6EQ9-cRYYwb_CXmviUYOzhVuR-e3vsFub_jn47Lx-CVf_R7mG0SYuuC0FHYIRUZBRLmds7Ow52LTLsqEb2Uc8BKurEf_6mK--6uPrpecAPhDNtBueS9R3ACHJNEGz73ADVs4fShjZbOpGfMtlvyU47Qy6ZpKtw_2JZJFAOhovdHAoKkzx36ft2_BRmXXpLRJ36ZDzfPbg8mHAV_h8526V6ZPmV0zSFafmTWnPWujZkQ5k"); background-size: cover; background-position: center;'>
-  <div class="flex flex-col p-6 pb-8 gap-3">
-    <span class="inline-flex items-center rounded-full bg-green-500/30 px-3 py-1 text-xs font-medium text-green-50 ring-1 ring-inset ring-green-400/50 w-fit backdrop-blur-sm">
-      פרויקט כתיבה משותף
-    </span>
-    <h1 class="text-white text-4xl font-bold font-display drop-shadow-md">
-      הסיפור שלך הוא<br/>
-      <span class="text-green-300">המצפן שלהם</span>
-    </h1>
-    <p class="text-green-50 text-lg font-medium leading-relaxed max-w-md drop-shadow-sm">
-      עוזרים למלש"בים להתחבר לאמת שבשטח דרך העיניים שלכם.
-    </p>
-  </div>
-</div>
-
-<!-- המטרה שלנו -->
-<div class="px-4 -mt-6 relative z-10">
-  <div class="bg-white rounded-xl shadow-lg p-6 border border-green-100">
-    <div class="flex items-center gap-3 mb-4">
-      <div class="bg-primary/10 p-2 rounded-full text-primary">
-        <span class="material-symbols-outlined">menu_book</span>
-      </div>
-      <h3 class="text-xl font-bold font-display text-slate-900">המטרה שלנו</h3>
-    </div>
-    <p class="text-slate-600 text-base leading-relaxed">
-      להפגיש את המלש״בים עם רגעים אמיתיים מהחיים כדי לחבר אותם לתכלס שקורה בצבא, דבר שיעזור להם בעבודת השם.
-    </p>
-  </div>
-</div>
-
-<!-- כרטיסים נושאים -->
-<div class="flex flex-col pt-8 pb-4">
-  <div class="flex items-center justify-between px-4 pb-4">
-    <h3 class="text-xl font-bold font-display text-slate-900">על מה כותבים?</h3>
-    <span class="text-primary font-bold text-sm">נושאים נבחרים</span>
-  </div>
-  <div class="grid grid-cols-1 gap-3 px-4">
-    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
-      <div class="size-12 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-600 shrink-0">
-        <span class="material-symbols-outlined">candle</span>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold font-display text-slate-900">שמירת שבת והלכה</h4>
-        <p class="text-sm text-slate-500">אתגרים ופתרונות בשטח</p>
-      </div>
-    </div>
-    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
-      <div class="size-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-600 shrink-0">
-        <span class="material-symbols-outlined">wc</span>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold font-display text-slate-900">ענייני בינו לבינה</h4>
-        <p class="text-sm text-slate-500">התמודדות בסביבה מעורבת</p>
-      </div>
-    </div>
-    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
-      <div class="size-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-600 shrink-0">
-        <span class="material-symbols-outlined">hotel_class</span>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold font-display text-slate-900">רגעים מרוממים</h4>
-        <p class="text-sm text-slate-500">השראה וחיבור רוחני</p>
-      </div>
-    </div>
-    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
-      <div class="size-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-600 shrink-0">
-        <span class="material-symbols-outlined">battery_alert</span>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold font-display text-slate-900">שחיקה ומשברים</h4>
-        <p class="text-sm text-slate-500">הקושי והצמיחה מתוכו</p>
-      </div>
-    </div>
-    <div class="bg-white p-4 rounded-xl border border-green-50 flex items-center gap-4 shadow-sm hover:border-green-200 transition-colors">
-      <div class="size-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600 shrink-0">
-        <span class="material-symbols-outlined">lightbulb</span>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold font-display text-slate-900">תובנות מהחיים</h4>
-        <p class="text-sm text-slate-500">מה לקחתי להמשך הדרך</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer / סיפור -->
-<div class="px-4 pb-10">
-  <div class="bg-gradient-to-br from-green-800 to-green-950 rounded-2xl p-6 border border-green-700/50 text-center relative overflow-hidden shadow-lg">
-    <div class="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 rounded-full bg-white/10 blur-3xl"></div>
-    <div class="relative z-10 flex flex-col items-center">
-      <span class="material-symbols-outlined text-4xl text-green-300 mb-3">chat_bubble</span>
-      <h3 class="text-white text-2xl font-bold font-display mb-2">יש לך סיפור?</h3>
-      <p class="text-green-100 text-sm mb-6 max-w-[250px]">הסיפור שלך יכול להיות האור עבור מישהו אחר. אנחנו זמינים בוואטסאפ ובטלפון.</p>
-      <div class="bg-white/10 border border-white/20 rounded-lg p-4 w-full mb-6 flex flex-col items-center justify-center backdrop-blur-sm">
-        <span class="text-green-100 text-xs mb-1 uppercase tracking-wider">מספר הטלפון שלנו</span>
-        <div class="flex items-center gap-2">
-          <span class="text-white text-2xl font-bold tracking-widest font-mono select-all">054-656-3397</span>
-          <button class="text-green-300 hover:text-white transition-colors">
-            <span class="material-symbols-outlined text-lg">content_copy</span>
-          </button>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-6 font-handwriting text-2xl font-bold">
+                <button onclick="selectCustomDesign()" class="hover:text-vintage-500 transition-colors font-bold">תכנון דגם אישי</button>
+                <a href="#catalog" class="hover:text-vintage-500 transition-colors">עבודות שלי</a>
+                <a href="#gallery" class="hover:text-vintage-500 transition-colors">גלריית תמונות</a>
+                <a href="#shipping" class="hover:text-vintage-500 transition-colors">משלוחים ואיסוף</a>
+                <a href="#contact" class="hover:text-vintage-500 transition-colors">דברו איתי</a>
+            </nav>
         </div>
-      </div>
-      <a href="https://wa.me/972546563397" target="_blank" class="w-full bg-white text-green-900 hover:bg-green-50 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg active:scale-[0.98]">
-        <span class="material-symbols-outlined">send</span>
-        <span>שלחו הודעה עכשיו</span>
-      </a>
-    </div>
-  </div>
-</div>
+    </header>
 
-</div>
-<div class="max-w-md mx-auto p-6 mt-8">
-    <a href="stories
-    " class="block w-full bg-primary hover:bg-primary-dark text-white text-center font-bold py-4 px-6 rounded-2xl shadow-lg transform transition hover:-translate-y-1 active:scale-95">
-       עבור לסיפורים קיימים!
+    <!-- Hero Section -->
+    <section id="hero-section" class="relative py-20 md:py-32 overflow-hidden border-b border-vintage-300 bg-cover bg-center flex items-center" 
+             style="background-image: linear-gradient(rgba(44, 24, 16, 0.65), rgba(44, 24, 16, 0.75)), url('https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&q=80&w=1600');">
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-6">
+            <div class="inline-flex items-center bg-vintage-200/90 text-vintage-900 px-5 py-1.5 rounded-full border border-vintage-400 text-2xl font-bold shadow-md">
+                <span id="hero-badge">הפינה של יובל</span>
+            </div>
+
+            <h2 id="hero-title" class="text-5xl md:text-7xl font-bold text-cream tracking-wide drop-shadow-md leading-tight">
+                כיפות סרוגות באהבה,<br>
+                <span class="text-vintage-200">בדוגמה ובצבעים שאתם בוחרים</span>
+            </h2>
+
+            <p id="hero-desc" class="text-2xl md:text-3xl text-vintage-100 max-w-2xl mx-auto leading-relaxed">
+                כל כיפה שאני סורגת מיוצרת בעבודת יד עדינה ומדויקת. תוכלו לבחור דגם מהגלריה שלי או להרכיב איתי עיצוב ייחודי בדיוק לפי הטעם שלכם.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <button onclick="selectCustomDesign()" class="bg-vintage-500 hover:bg-vintage-600 text-white text-3xl font-bold px-8 py-3 rounded-2xl vintage-shadow transition-all duration-300 hover:scale-105">
+                    עיצוב כיפה אישית
+                </button>
+                <a href="#catalog" class="bg-cream/90 hover:bg-cream text-vintage-800 text-3xl font-bold px-8 py-3 rounded-2xl vintage-shadow border border-vintage-300 transition-all duration-300 hover:scale-105">
+                    לצפייה בדגמים
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Custom Order Section -->
+    <section id="custom-order" class="py-16 bg-vintage-100 border-b border-vintage-300">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center space-y-3 mb-10">
+                <h2 class="text-5xl font-bold text-vintage-800">תכנון דגם אישי</h2>
+                <p class="text-2xl text-vintage-700">
+                    בחרו את המידה בסנטימטרים ואת הצבעים שתרצו, והמערכת תכין פנייה מוכנה ישירות לוואטסאפ שלי!
+                </p>
+            </div>
+
+            <div id="planner-box" class="bg-cream rounded-3xl p-6 md:p-10 border-2 border-vintage-300 vintage-shadow space-y-8">
+                
+                <!-- Display selected model / custom selection -->
+                <div id="selected-model-banner" class="hidden bg-vintage-200/80 p-4 rounded-2xl border border-vintage-400 flex items-center justify-between">
+                    <div>
+                        <span id="selected-model-label" class="text-lg text-vintage-700 block font-bold">סוג ההזמנה:</span>
+                        <span id="selected-model-name" class="text-2xl text-vintage-900 font-bold">---</span>
+                    </div>
+                    <button onclick="resetSelectedModel()" class="text-vintage-700 hover:text-vintage-900 text-xl underline font-bold">שנה / איפוס</button>
+                </div>
+
+                <!-- Step 1: Base Size in Centimeters (Dynamic Render) -->
+                <div class="space-y-3">
+                    <label class="block text-3xl font-bold text-vintage-800">1. גודל הכיפה (ס״מ):</label>
+                    <div id="sizes-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                        <!-- Loaded dynamically from Google Sheets -->
+                    </div>
+                </div>
+
+                <!-- Step 2: Main & Border Color Selection (Dynamic Render) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-3xl font-bold text-vintage-800">2. צבע בסיס מרכזי:</label>
+                        <select id="main-color" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900">
+                            <!-- Loaded dynamically -->
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-3xl font-bold text-vintage-800">3. צבע השוליים / המסגרת:</label>
+                        <select id="border-color" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900">
+                            <!-- Loaded dynamically -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 3: Delivery Options (Dynamic Render) -->
+                <div class="space-y-2">
+                    <label class="block text-3xl font-bold text-vintage-800">4. אופן אספקה:</label>
+                    <select id="shipping-method" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900">
+                        <!-- Loaded dynamically -->
+                    </select>
+                </div>
+
+                <!-- Step 4: Special Remarks -->
+                <div class="space-y-2">
+                    <label class="block text-3xl font-bold text-vintage-800">5. הערות או בקשות מיוחדות:</label>
+                    <textarea id="notes" rows="3" placeholder="למשל: הקדשה מיוחדת, שילוב שמות, תאריך יעד לאירוע..." class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center pt-4">
+                    <button onclick="sendOrderToWhatsapp()" class="w-full md:w-auto bg-whatsapp hover:bg-emerald-600 text-white text-3xl font-bold px-10 py-4 rounded-2xl vintage-shadow transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 mx-auto">
+                        <i class="fa-brands fa-whatsapp text-4xl"></i>
+                        <span>שלחו לי את ההזמנה לוואטסאפ</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Gallery Section (Dynamic Render) -->
+    <section id="catalog" class="py-16 max-w-6xl mx-auto px-4">
+        <div class="text-center space-y-3 mb-12">
+            <h2 class="text-5xl font-bold text-vintage-800">עבודות שלי</h2>
+            <p class="text-2xl text-vintage-600 max-w-xl mx-auto">
+                הנה כמה מיוזמות הסריגה והדגמים שסרגתי לאחרונה. תוכלו לבחור דגם קיים ולהתאים לו צבעים ומידה!
+            </p>
+        </div>
+
+        <div id="catalog-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Loaded dynamically from Google Sheets -->
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section (Dynamic Render) -->
+    <section id="gallery" class="py-16 bg-vintage-50 border-y border-vintage-300">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center space-y-3 mb-10">
+                <div class="inline-flex items-center gap-2 text-vintage-600 text-2xl font-bold">
+                    <i class="fa-solid fa-camera text-vintage-600"></i>
+                    <span>תמונות שמחממות את הלב</span>
+                </div>
+                <h2 class="text-5xl font-bold text-vintage-800">גלריית תמונות</h2>
+            </div>
+
+            <!-- Responsive Pure Masonry Photo Gallery -->
+            <div id="gallery-container" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                <!-- Loaded dynamically from Google Sheets -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping & Pickup Info Section (Dynamic Render) -->
+    <section id="shipping" class="py-16 bg-cream border-b border-vintage-300">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center space-y-3 mb-10">
+                <h2 class="text-5xl font-bold text-vintage-800">משלוחים ואיסוף עצמי</h2>
+                <p class="text-2xl text-vintage-600">תוכלו לבחור את האפשרות הנוחה לכם ביותר לקבלת הכיפה</p>
+            </div>
+
+            <div id="shipping-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Loaded dynamically from Google Sheets -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Direct Chat Section -->
+    <section id="contact" class="py-16 max-w-4xl mx-auto px-4 text-center space-y-6">
+        <h2 class="text-5xl font-bold text-vintage-800">מוזמנים לדבר איתי</h2>
+        <p class="text-2xl text-vintage-700 max-w-xl mx-auto">
+            יש לכם שאלה? רוצים להתייעץ לגבי מידה, חוטים או דגמים שונים? אני כאן בשבילכם לכל דבר.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 pt-2">
+            <a id="contact-whatsapp-btn" href="https://wa.me/972526328393" target="_blank" class="bg-whatsapp text-white text-3xl font-bold px-8 py-3 rounded-2xl vintage-shadow hover:bg-emerald-600 transition-all flex items-center gap-2">
+                <i class="fa-brands fa-whatsapp text-3xl"></i>
+                <span>פנייה ישירה בוואטסאפ</span>
+            </a>
+            <a id="contact-phone-btn" href="tel:0526328393" class="bg-vintage-700 text-cream text-3xl font-bold px-8 py-3 rounded-2xl vintage-shadow hover:bg-vintage-800 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-phone text-2xl"></i>
+                <span id="phone-text">חייגו אליי: 052-6328393</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button (Visible on Scroll) -->
+    <a id="floating-whatsapp" 
+       href="https://wa.me/972526328393" 
+       target="_blank" 
+       class="fixed bottom-6 left-6 z-50 bg-whatsapp hover:bg-emerald-600 text-white font-bold px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-5 hover:scale-105 border-2 border-white/30">
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span class="text-2xl font-bold tracking-wide">דברו איתי</span>
     </a>
-</div>
-  
 
+    <!-- Lightbox Modal for Photo Gallery -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-50 bg-black/85 hidden backdrop-blur-sm flex items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-4xl max-h-[90vh] w-full flex items-center justify-center" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-12 left-0 text-cream hover:text-vintage-200 text-3xl font-bold w-10 h-10 flex items-center justify-center">✕</button>
+            <img id="lightbox-img" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl border-2 border-vintage-300">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-vintage-900 text-cream py-8 border-t-4 border-vintage-500 text-center space-y-3">
+        <p id="footer-title" class="text-3xl font-bold">הכיפות של יובל - עבודת יד באהבה</p>
+        <p id="footer-contact" class="text-xl text-vintage-300">טלפון ליצירת קשר: 052-6328393 | איסוף עצמי מעמק דותן</p>
+        <p id="footer-copyright" class="text-lg text-vintage-400 font-sans opacity-80">© כל הזכויות שמורות ליובל</p>
+    </footer>
+
+    <!-- JavaScript to Fetch and Render from Google Sheets API -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbzlDK6CR8cvCzhkbRQY6UFtHyZ8tDItLP8NV45D553yivgZW3uITLqlKB-j5hGHyoVWNg/exec";
+
+        let selectedSize = '';
+        let selectedModel = '';
+        let siteData = {};
+
+        async function fetchSiteData() {
+            try {
+                const response = await fetch(API_URL);
+                siteData = await response.json();
+                renderSite();
+            } catch (error) {
+                console.error("שגיאה בטעינת הנתונים מהגוגל שיטס:", error);
+            }
+        }
+
+        function renderSite() {
+            // 1. הגדרות כלליות
+            const settings = siteData['הגדרות כלליות'] || [];
+            const getSetting = (key) => {
+                const item = settings.find(row => row['מפתח'] === key);
+                return item ? item['ערך'] : '';
+            };
+
+            const siteTitle = getSetting('כותרת האתר');
+            const subTitle = getSetting('תת כותרת');
+            const phone = getSetting('טלפון ליצירת קשר');
+            const whatsappNum = getSetting('מספר וואטסאפ (ללא מקפים/פלוס)');
+            const location = getSetting('מיקום/איסוף עצמי');
+            const heroBadge = getSetting('תגית הפינה');
+            const heroTitle = getSetting('כותרת ראשית (Hero)');
+            const heroDesc = getSetting('תיאור ראשי (Hero)');
+            const heroBg = getSetting('נתיב תמונת רקע ראשית');
+            const copyright = getSetting('טקסט זכויות יוצרים');
+
+            if (siteTitle) document.getElementById('site-title').innerText = siteTitle + " - כיפות סרוגות באהבה בעבודת יד";
+            if (siteTitle) document.getElementById('header-title').innerText = siteTitle;
+            if (subTitle) document.getElementById('header-subtitle').innerText = subTitle;
+            if (heroBadge) document.getElementById('hero-badge').innerText = heroBadge;
+            if (heroTitle) document.getElementById('hero-title').innerHTML = heroTitle.replace(',', ',<br><span class="text-vintage-200">') + '</span>';
+            if (heroDesc) document.getElementById('hero-desc').innerText = heroDesc;
+            
+            if (heroBg) {
+                let bgUrl = heroBg.startsWith('http') ? heroBg : `https://images.unsplash.com/${heroBg}?auto=format&fit=crop&q=80&w=1600`;
+                document.getElementById('hero-section').style.backgroundImage = `linear-gradient(rgba(44, 24, 16, 0.65), rgba(44, 24, 16, 0.75)), url('${bgUrl}')`;
+            }
+
+            if (copyright) document.getElementById('footer-copyright').innerText = copyright;
+            if (phone && location) {
+                document.getElementById('footer-contact').innerText = `טלפון ליצירת קשר: ${phone} | איסוף עצמי מע ${location}`;
+                document.getElementById('phone-text').innerText = `חייגו אליי: ${phone}`;
+                document.getElementById('contact-phone-btn').href = `tel:${phone.replace(/-/g, '')}`;
+            }
+
+            if (whatsappNum) {
+                const waLink = `https://wa.me/${whatsappNum}`;
+                document.getElementById('contact-whatsapp-btn').href = waLink;
+                document.getElementById('floating-whatsapp').href = waLink;
+            }
+
+            // 2. מידות
+            const sizesContainer = document.getElementById('sizes-container');
+            sizesContainer.innerHTML = '';
+            const sizes = siteData['מידות'] || [];
+            sizes.forEach((row, index) => {
+                const sizeName = row['מידה'];
+                const isDefault = row['ברירת מחדל'] === 'כן';
+                if (isDefault && !selectedSize) selectedSize = sizeName;
+                if (!selectedSize && index === 0) selectedSize = sizeName;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `size-btn border-2 ${selectedSize === sizeName ? 'border-vintage-500 bg-vintage-200' : 'border-vintage-300 bg-white hover:border-vintage-500'} rounded-xl p-3 text-center font-bold text-2xl transition-all`;
+                btn.innerText = sizeName;
+                btn.onclick = () => setSize(sizeName);
+                sizesContainer.appendChild(btn);
+            });
+
+            // 3. צבעי בסיס
+            const mainColorSelect = document.getElementById('main-color');
+            mainColorSelect.innerHTML = '';
+            const baseColors = siteData['צבעי בסיס'] || [];
+            baseColors.forEach(row => {
+                const opt = document.createElement('option');
+                opt.value = row['שם הצבע'];
+                opt.innerText = row['שם הצבע'];
+                mainColorSelect.appendChild(opt);
+            });
+
+            // 4. צבעי שוליים
+            const borderColorSelect = document.getElementById('border-color');
+            borderColorSelect.innerHTML = '';
+            const borderColors = siteData['צבעי שוליים'] || [];
+            borderColors.forEach(row => {
+                const opt = document.createElement('option');
+                opt.value = row['תיאור השוליים'];
+                opt.innerText = row['תיאור השוליים'];
+                borderColorSelect.appendChild(opt);
+            });
+
+            // 5. אפשרויות משלוח
+            const shippingSelect = document.getElementById('shipping-method');
+            shippingSelect.innerHTML = '';
+            const shippingCardsContainer = document.getElementById('shipping-cards-container');
+            shippingCardsContainer.innerHTML = '';
+            const shippingMethods = siteData['אפשרויות משלוח'] || [];
+            
+            shippingMethods.forEach(row => {
+                // Dropdown option
+                const opt = document.createElement('option');
+                opt.value = row['טקסט בטופס הבחירה'];
+                opt.innerText = row['טקסט בטופס הבחירה'];
+                shippingSelect.appendChild(opt);
+
+                // Shipping info card
+                const isPickup = row['שם האפשרות'].includes('איסוף');
+                const card = document.createElement('div');
+                card.className = "bg-vintage-50 p-6 rounded-2xl border-2 border-vintage-300 vintage-shadow flex items-start gap-4";
+                card.innerHTML = `
+                    <div class="w-14 h-14 rounded-full bg-vintage-200 border border-vintage-500 flex items-center justify-center shrink-0 text-vintage-800 text-2xl">
+                        <i class="fa-solid ${isPickup ? 'fa-location-dot' : 'fa-truck-fast'}"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-vintage-800 mb-1">${row['שם האפשרות']}</h3>
+                        <p class="text-xl text-vintage-700">${row['תיאור']}</p>
+                    </div>
+                `;
+                shippingCardsContainer.appendChild(card);
+            });
+
+            // 6. קטלוג עבודות
+            const catalogContainer = document.getElementById('catalog-container');
+            catalogContainer.innerHTML = '';
+            const catalogItems = siteData['קטלוג עבודות'] || [];
+            catalogItems.forEach(row => {
+                let imgUrl = row['קישור לתמונה'];
+                if (!imgUrl.startsWith('http')) {
+                    imgUrl = "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&q=80&w=600";
+                }
+
+                const card = document.createElement('div');
+                card.className = "bg-cream rounded-2xl border-2 border-vintage-200 p-4 vintage-shadow flex flex-col justify-between group hover:border-vintage-400 transition-all";
+                card.innerHTML = `
+                    <div>
+                        <div class="aspect-square w-full rounded-xl overflow-hidden bg-vintage-100 mb-4 relative">
+                            <img src="${imgUrl}" alt="${row['שם הדגם']}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-vintage-800 text-cream text-lg px-3 py-1 rounded-full font-bold">${row['תגית']}</span>
+                            <span class="absolute bottom-3 left-3 bg-vintage-700/90 text-cream text-xl px-3 py-1 rounded-xl font-bold shadow-md">${row['מחיר (בש״ח)']} ₪</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-vintage-800 mb-1">${row['שם הדגם']}</h3>
+                        <p class="text-xl text-vintage-600 mb-4">${row['תיאור הדגם']}</p>
+                    </div>
+                    <button onclick="selectModel('${row['שם הדגם']}')" class="w-full bg-vintage-200 hover:bg-vintage-500 hover:text-white text-vintage-800 text-2xl py-2 rounded-xl transition-colors font-bold">
+                        אני רוצה כיפה כזו!
+                    </button>
+                `;
+                catalogContainer.appendChild(card);
+            });
+
+            // 7. גלריית תמונות
+            const galleryContainer = document.getElementById('gallery-container');
+            galleryContainer.innerHTML = '';
+            const galleryItems = siteData['גלריית תמונות'] || [];
+            galleryItems.forEach(row => {
+                let imgUrl = row['קישור לתמונה'];
+                if (!imgUrl.startsWith('http')) {
+                    imgUrl = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800";
+                }
+
+                const div = document.createElement('div');
+                div.className = "break-inside-avoid relative group rounded-2xl border-2 border-vintage-200 overflow-hidden vintage-shadow cursor-pointer hover:border-vintage-500 transition-all hover:-translate-y-1 bg-cream";
+                div.onclick = () => openLightbox(imgUrl);
+                div.innerHTML = `
+                    <img src="${imgUrl}" alt="${row['תיאור תמונה']}" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 block">
+                    <div class="absolute inset-0 bg-vintage-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i class="fa-solid fa-expand text-cream text-2xl drop-shadow"></i>
+                    </div>
+                `;
+                galleryContainer.appendChild(div);
+            });
+        }
+
+        function setSize(size) {
+            selectedSize = size;
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                if (btn.innerText.trim() === size || (size.includes('אחר') && btn.innerText.trim().includes('אחר'))) {
+                    btn.className = 'size-btn border-2 border-vintage-500 bg-vintage-200 rounded-xl p-3 text-center font-bold text-2xl transition-all';
+                } else {
+                    btn.className = 'size-btn border-2 border-vintage-300 rounded-xl p-3 text-center bg-white hover:border-vintage-500 font-bold text-2xl transition-all';
+                }
+            });
+        }
+
+        function selectModel(modelName) {
+            selectedModel = modelName;
+            const banner = document.getElementById('selected-model-banner');
+            const label = document.getElementById('selected-model-label');
+            const name = document.getElementById('selected-model-name');
+            
+            label.innerText = 'דגם שנבחר:';
+            name.innerText = modelName;
+            banner.classList.remove('hidden');
+
+            document.getElementById('custom-order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectCustomDesign() {
+            selectedModel = 'דגם בהזמנה אישית';
+            const banner = document.getElementById('selected-model-banner');
+            const label = document.getElementById('selected-model-label');
+            const name = document.getElementById('selected-model-name');
+            
+            label.innerText = 'סוג ההזמנה:';
+            name.innerText = 'דגם בהזמנה אישית';
+            banner.classList.remove('hidden');
+
+            document.getElementById('custom-order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetSelectedModel() {
+            selectedModel = '';
+            document.getElementById('selected-model-banner').classList.add('hidden');
+        }
+
+        function sendOrderToWhatsapp() {
+            const mainColor = document.getElementById('main-color').value;
+            const borderColor = document.getElementById('border-color').value;
+            const shippingMethod = document.getElementById('shipping-method').value;
+            const notes = document.getElementById('notes').value.trim();
+
+            let message = `היי יובל, אשמח להזמין כיפה סרוגה בעבודת יד! 🧶\n\n`;
+            
+            if (selectedModel) {
+                message += `*פרטי ההזמנה:* ${selectedModel}\n`;
+            } else {
+                message += `*פרטי ההזמנה:* דגם בהזמנה אישית\n`;
+            }
+
+            message += `*גודל:* ${selectedSize}\n`;
+            message += `*צבע בסיס מרכזי:* ${mainColor}\n`;
+            message += `*צבע שוליים/מסגרת:* ${borderColor}\n`;
+            message += `*אופן אספקה:* ${shippingMethod}\n`;
+
+            if (notes) {
+                message += `*הערות ובקשות מיוחדות:* ${notes}\n`;
+            }
+
+            message += `\nנשמח לתאם ולסגור פרטים! 😊`;
+
+            const settings = siteData['הגדרות כלליות'] || [];
+            const waItem = settings.find(row => row['מפתח'] === 'מספר וואטסאפ (ללא מקפים/פלוס)');
+            const waNum = waItem ? waItem['ערך'] : '972526328393';
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${waNum}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Floating WhatsApp Button visibility on scroll
+        window.addEventListener('scroll', function() {
+            const floatingBtn = document.getElementById('floating-whatsapp');
+            if (window.scrollY > 250) {
+                floatingBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-5');
+                floatingBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                floatingBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-5');
+                floatingBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            }
+        });
+
+        // Lightbox functions for Pure Photo Gallery
+        function openLightbox(imgUrl) {
+            document.getElementById('lightbox-img').src = imgUrl;
+            document.getElementById('gallery-lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('gallery-lightbox').classList.add('hidden');
+        }
+
+        // Fetch data on page load
+        document.addEventListener("DOMContentLoaded", fetchSiteData);
+    </script>
 </body>
-
 </html>
