@@ -505,7 +505,7 @@
                 catalogContainer.appendChild(card);
             });
 
-            // 8. גלריית תמונות
+            // 8. גלריית תמונות (ללא תמונות דמה)
             const galleryContainer = document.getElementById('gallery-container');
             galleryContainer.innerHTML = '';
             const galleryItems = getSheetData(siteData, ['גלריית תמונות']);
@@ -513,15 +513,17 @@
                 let imgUrl = getField(row, ['קישור לתמונה', 'תמונה']);
                 let imgDesc = getField(row, ['תיאור תמונה', 'תיאור']);
 
-                if (!imgUrl || !imgUrl.startsWith('http')) {
-                    imgUrl = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800";
+                // אם אין קישור תקין שמתחיל ב-http, נדלג על שורה זו לחלוטין ולא נציג דמה
+                if (!imgUrl || !imgUrl.toString().trim().startsWith('http')) {
+                    return;
                 }
 
+                const cleanImgUrl = imgUrl.toString().trim();
                 const div = document.createElement('div');
                 div.className = "break-inside-avoid relative group rounded-2xl border-2 border-vintage-200 overflow-hidden vintage-shadow cursor-pointer hover:border-vintage-500 transition-all hover:-translate-y-1 bg-cream";
-                div.onclick = () => openLightbox(imgUrl);
+                div.onclick = () => openLightbox(cleanImgUrl);
                 div.innerHTML = `
-                    <img src="${imgUrl}" alt="${imgDesc || 'תמונה מגלריה'}" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 block">
+                    <img src="${cleanImgUrl}" alt="${imgDesc || 'תמונה מגלריה'}" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 block">
                     <div class="absolute inset-0 bg-vintage-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <i class="fa-solid fa-expand text-cream text-2xl drop-shadow"></i>
                     </div>
