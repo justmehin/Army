@@ -79,8 +79,8 @@
 </head>
 <body class="text-vintage-900 font-handwriting min-h-screen flex flex-col">
 
-    <!-- Header & Navigation -->
-    <header class="bg-cream/95 md:backdrop-blur-md relative md:sticky top-0 z-40 border-b-2 border-vintage-300 shadow-sm">
+    <!-- Header & Navigation (Hidden on Mobile, Visible on md screens and up) -->
+    <header class="hidden md:block bg-cream/95 md:backdrop-blur-md relative md:sticky top-0 z-40 border-b-2 border-vintage-300 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-2 md:py-3 flex flex-col md:flex-row items-center justify-between gap-3">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2 md:gap-3 group mx-auto md:mx-0">
@@ -171,26 +171,30 @@
                 </div>
 
                 <!-- Step 2: Colors -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="space-y-2">
                         <label class="block text-3xl font-bold text-vintage-800">2. צבע בסיס מרכזי:</label>
                         <select id="main-color" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900"></select>
                     </div>
                     <div class="space-y-2">
-                        <label class="block text-3xl font-bold text-vintage-800">3. צבע משני:</label>
+                        <label class="block text-3xl font-bold text-vintage-800">3. צבע נוסף:</label>
+                        <select id="secondary-color" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900"></select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-3xl font-bold text-vintage-800">4. צבע השוליים:</label>
                         <select id="border-color" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900"></select>
                     </div>
                 </div>
 
                 <!-- Step 3: Delivery -->
                 <div class="space-y-2">
-                    <label class="block text-3xl font-bold text-vintage-800">4. אופן אספקה:</label>
+                    <label class="block text-3xl font-bold text-vintage-800">5. אופן אספקה:</label>
                     <select id="shipping-method" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900"></select>
                 </div>
 
                 <!-- Step 4: Remarks -->
                 <div class="space-y-2">
-                    <label class="block text-3xl font-bold text-vintage-800">5. הערות או בקשות מיוחדות:</label>
+                    <label class="block text-3xl font-bold text-vintage-800">6. הערות או בקשות מיוחדות:</label>
                     <textarea id="notes" rows="3" placeholder="כל דבר" class="w-full p-3 rounded-xl border-2 border-vintage-300 bg-white text-vintage-900"></textarea>
                 </div>
 
@@ -312,6 +316,15 @@
             }
         }
 
+        function getSheetData(data, possibleSheetNames) {
+            for (let name of possibleSheetNames) {
+                if (data[name]) return data[name];
+                let foundKey = Object.keys(data).find(k => k.trim() === name.trim());
+                if (foundKey && data[foundKey]) return data[foundKey];
+            }
+            return [];
+        }
+
         function getField(row, possibleKeys) {
             for (let key of possibleKeys) {
                 if (row[key] !== undefined && row[key] !== null) return row[key];
@@ -322,7 +335,7 @@
         }
 
         function renderSite() {
-            const settings = siteData['הגדרות כלליות'] || [];
+            const settings = getSheetData(siteData, ['הגדרות כלליות']);
             const getSetting = (key) => {
                 let found = settings.find(row => getField(row, ['מפתח']) === key);
                 return found ? getField(found, ['ערך']) : '';
@@ -357,7 +370,7 @@
             if (phone && location) {
                 document.getElementById('footer-contact').innerText = `טלפון ליצירת קשר: ${phone} | איסוף עצמי מ${location}`;
                 document.getElementById('phone-text').innerText = `חייגו אליי: ${phone}`;
-                document.getElementById('contact-phone-btn').href = `tel:${phone.replace(/-/g, '')}`;
+                document.getElementById('contact-phone-btn').href = `tel:${phone.toString().replace(/-/g, '')}`;
             }
 
             if (whatsappNum) {
@@ -369,7 +382,7 @@
             // 2. מידות
             const sizesContainer = document.getElementById('sizes-container');
             sizesContainer.innerHTML = '';
-            const sizes = siteData['מידות'] || [];
+            const sizes = getSheetData(siteData, ['מידות']);
             sizes.forEach((row, index) => {
                 const sizeName = getField(row, ['מידה', 'גדלים']);
                 const isDefault = getField(row, ['ברירת מחדל', 'default']) === 'כן';
@@ -387,33 +400,51 @@
             // 3. צבעי בסיס
             const mainColorSelect = document.getElementById('main-color');
             mainColorSelect.innerHTML = '';
-            const baseColors = siteData['צבעי בסיס'] || [];
+            const baseColors = getSheetData(siteData, ['צבעי בסיס']);
             baseColors.forEach(row => {
                 const colorName = getField(row, ['שם הצבע', 'צבע בסיס']);
-                const opt = document.createElement('option');
-                opt.value = colorName;
-                opt.innerText = colorName;
-                mainColorSelect.appendChild(opt);
+                if (colorName) {
+                    const opt = document.createElement('option');
+                    opt.value = colorName.trim();
+                    opt.innerText = colorName.trim();
+                    mainColorSelect.appendChild(opt);
+                }
             });
 
-            // 4. צבעי שוליים
+            // 4. צבע נוסף
+            const secondaryColorSelect = document.getElementById('secondary-color');
+            secondaryColorSelect.innerHTML = '';
+            const secondaryColors = getSheetData(siteData, ['צבע נוסף']);
+            secondaryColors.forEach(row => {
+                const colorName = getField(row, ['שם הצבע', 'צבע נוסף']);
+                if (colorName) {
+                    const opt = document.createElement('option');
+                    opt.value = colorName.trim();
+                    opt.innerText = colorName.trim();
+                    secondaryColorSelect.appendChild(opt);
+                }
+            });
+
+            // 5. צבעי שוליים
             const borderColorSelect = document.getElementById('border-color');
             borderColorSelect.innerHTML = '';
-            const borderColors = siteData['צבעי שוליים'] || [];
+            const borderColors = getSheetData(siteData, ['צבעי שוליים']);
             borderColors.forEach(row => {
                 const borderDesc = getField(row, ['תיאור השוליים', 'שוליים']);
-                const opt = document.createElement('option');
-                opt.value = borderDesc;
-                opt.innerText = borderDesc;
-                borderColorSelect.appendChild(opt);
+                if (borderDesc) {
+                    const opt = document.createElement('option');
+                    opt.value = borderDesc.trim();
+                    opt.innerText = borderDesc.trim();
+                    borderColorSelect.appendChild(opt);
+                }
             });
 
-            // 5. אפשרויות משלוח
+            // 6. אפשרויות משלוח
             const shippingSelect = document.getElementById('shipping-method');
             shippingSelect.innerHTML = '';
             const shippingCardsContainer = document.getElementById('shipping-cards-container');
             shippingCardsContainer.innerHTML = '';
-            const shippingMethods = siteData['אפשרויות משלוח'] || [];
+            const shippingMethods = getSheetData(siteData, ['אפשרויות משלוח']);
             
             shippingMethods.forEach(row => {
                 const optText = getField(row, ['טקסט בטופס הבחירה', 'אפשרות']);
@@ -440,10 +471,10 @@
                 shippingCardsContainer.appendChild(card);
             });
 
-            // 6. קטלוג עבודות
+            // 7. קטלוג עבודות
             const catalogContainer = document.getElementById('catalog-container');
             catalogContainer.innerHTML = '';
-            const catalogItems = siteData['קטלוג עבודות'] || [];
+            const catalogItems = getSheetData(siteData, ['קטלוג עבודות']);
             catalogItems.forEach(row => {
                 const modelName = getField(row, ['שם הדגם', 'דגם', 'שם']);
                 const modelDesc = getField(row, ['תיאור הדגם', 'תיאור']);
@@ -474,10 +505,10 @@
                 catalogContainer.appendChild(card);
             });
 
-            // 7. גלריית תמונות
+            // 8. גלריית תמונות
             const galleryContainer = document.getElementById('gallery-container');
             galleryContainer.innerHTML = '';
-            const galleryItems = siteData['גלריית תמונות'] || [];
+            const galleryItems = getSheetData(siteData, ['גלריית תמונות']);
             galleryItems.forEach(row => {
                 let imgUrl = getField(row, ['קישור לתמונה', 'תמונה']);
                 let imgDesc = getField(row, ['תיאור תמונה', 'תיאור']);
@@ -543,6 +574,7 @@
 
         function sendOrderToWhatsapp() {
             const mainColor = document.getElementById('main-color').value;
+            const secondaryColor = document.getElementById('secondary-color').value;
             const borderColor = document.getElementById('border-color').value;
             const shippingMethod = document.getElementById('shipping-method').value;
             const notes = document.getElementById('notes').value.trim();
@@ -557,6 +589,9 @@
 
             message += `*גודל:* ${selectedSize}\n`;
             message += `*צבע בסיס מרכזי:* ${mainColor}\n`;
+            if (secondaryColor) {
+                message += `*צבע נוסף:* ${secondaryColor}\n`;
+            }
             message += `*צבע שוליים/מסגרת:* ${borderColor}\n`;
             message += `*אופן אספקה:* ${shippingMethod}\n`;
 
@@ -566,7 +601,7 @@
 
             message += `\nנשמח לתאם ולסגור פרטים! 😊`;
 
-            const settings = siteData['הגדרות כלליות'] || [];
+            const settings = getSheetData(siteData, ['הגדרות כלליות']);
             const waItem = settings.find(row => getField(row, ['מפתח']) === 'מספר וואטסאפ (ללא מקפים/פלוס)');
             const waNum = waItem ? getField(waItem, ['ערך']) : '972526328393';
 
